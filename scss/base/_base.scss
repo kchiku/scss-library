@@ -1,0 +1,33 @@
+@charset "utf-8";
+
+//各種リセット
+
+body{
+	margin:0;
+}
+
+*{
+	box-sizing:border-box;
+}
+
+h1,h2,h3,h4{
+	margin:0;
+	font-weight: 500;
+}
+
+ul{
+	padding:0;
+}
+
+li{
+	list-style-type: none;
+}
+
+a{
+	text-decoration: none;
+	color: $baseColor;
+}
+
+p{
+	margin: 0;
+}

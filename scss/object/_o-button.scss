@@ -1,0 +1,98 @@
+@charset "utf-8";
+
+// ■ ボタン
+//------------------------------------------
+// 共通部分（block）を.o-buttonで記述
+// 種別(element)を.o-button__elementで記述
+// 状態(modifier)は.o-button__element-modifireで記述
+//------------------------------------------
+//
+// ■ 記述例
+//------------------------------------------
+//<a class="o-button o-button__a" href="#contact">CONTACT</a>
+//------------------------------------------
+
+.o-button{
+	display: block;
+	text-align: center;
+	font-family:#{$english};
+	letter-spacing: 0.1rem;
+	color: #fff;
+	background: $buttonColor;
+	@include transition(0.3);
+	&:hover{
+		opacity: 0.8;
+	}
+	
+	//ヘッダーメニュー部
+	&.o-button__a{
+		width: 150px;
+		font-size:1.4rem;
+		padding: 9px 10px;
+	}
+
+	//ヒーローイメージ内
+	&.o-button__b{
+		width: 250px;
+		font-size: 1.8rem;
+		padding: 16px 10px;
+	}
+
+	//フォーム送信ボタン
+	&.o-button__c{
+		width: 100px;
+		height: 30px;
+		font-size: 1.4rem;
+		border:transparent;
+		cursor:pointer;
+	}
+}
+
+.o-buttonB{
+	display: block;
+	text-align: center;
+	font-family:#{$english};
+	letter-spacing: 0.1rem;
+	color: #fff;
+	background: $buttonColor;
+
+	&.o-buttonB__a{
+		position: relative;
+		width: 200px;
+		padding: 10px 20px;
+		@include radius(5);
+		font-size: 1.8rem;
+		&::before{
+			@include coverElement;
+			top:3px;
+			left:0;
+			z-index: -1;
+			@include radius(5);
+			background: $buttonColor-shadow;
+		}
+
+	}	
+}
+
+@media screen and (max-width: 960px) {
+
+.o-button{
+
+}
+
+}
+
+@media screen and (max-width: 768px) {
+
+.o-button{
+
+}
+
+}
+
+@media screen and (max-width: 480px) {
+
+.o-button{
+}
+
+}

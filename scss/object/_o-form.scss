@@ -1,0 +1,71 @@
+@charset "utf-8";
+
+// ■ コメントフォーム
+//------------------------------------------
+//<form class="o-form" action="">
+//	<input class="o-form__name o-form__input-style" type="text" placeholder="お名前">
+//	<input class="o-form__email o-form__input-style" type="email" placeholder="Email">
+//	<input class="o-form__tel o-form__input-style" type="tel" placeholder="電話番号">
+//	<textarea class="o-form__mes o-form__input-style" type="text" placeholder="メッセージ"></textarea>
+//	<input class="o-form__submit" type="submit" value="送信">
+//</form>
+//------------------------------------------
+
+
+.o-form{
+	width: 100%;
+	
+	&__input-style{
+		display: block;
+		width: 100%;
+		color: $fontColor;
+		border-width:1px;
+		border-style: solid;
+		border-color: #ccc;
+		margin: 0 0 10px 0;
+	}
+
+	&__name{
+		height: 36px;
+		padding: 0 10px;
+	}
+
+	&__email{
+		height: 36px;
+		padding: 0 10px;
+	}
+
+	&__tel{
+		height: 36px;
+		padding: 0 10px;
+	}
+
+	&__mes{
+		height: 200px;
+		padding: 10px;
+	}
+
+	&__submit{
+		width: 100px;
+		height: 30px;
+		font-size: 1.4rem;
+		color: #fff;
+		text-align: center;
+		background: $baseColor;
+		border:transparent;
+		cursor:pointer;
+		@include transition(0.3);
+		&:hover{
+			opacity: 0.8;
+		}
+	}
+}
+
+@media screen and (max-width: 760px) {
+
+.o-form{
+	width: 90%;
+	margin: 0 auto;
+}
+
+}

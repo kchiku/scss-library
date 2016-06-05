@@ -1,0 +1,10 @@
+@charset "utf-8";
+
+//基本色
+$baseColor: #1c5fa4; //サイトコンセプトカラー
+$fontColor: #808080; //フォントベーシックカラー
+
+//ボタン
+$buttonColor: #ffa131; //ボタンカラー
+$buttonColor-shadow: darken( $buttonColor , 20% ); //ボタンシャドウ
+$buttonColor-hover: lighten( $buttonColor , 20% ); //ボタンホバー

@@ -1,0 +1,43 @@
+@charset "utf-8";
+
+
+//googleフォント読み込み
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,700);
+@import url(https://fonts.googleapis.com/css?family=Teko:400,600);
+@import url(https://fonts.googleapis.com/css?family=Raleway);
+
+//googleフォント指定
+$roboto:'"Roboto", sans-serif';
+$teko:'"Teko", sans-serif';
+$raleway:'"Raleway", sans-serif';
+
+//使用フォント
+$english: $raleway;
+
+
+//明朝
+$mincho:'"ヒラギノ明朝 Pro W3","Hiragino Mincho Pro","游明朝体","Yu Mincho","HG明朝E","メイリオ",Meiryo,sans-serif';
+
+//ゴシック
+$gothic:'"ヒラギノ角ゴ Pro W3","Hiragino Kaku Gothic Pro","メイリオ","Meiryo",Osaka,"ＭＳ Ｐゴシック","MS PGothic",verdana,sans-serif;';
+
+
+//フォント設定
+html{
+	font-size:10px;
+	font-family:#{$roboto} , #{$mincho};
+	color: $fontColor;
+}
+
+
+@media screen and (max-width: 768px) {
+
+html{
+	font-size: 9px;
+}
+
+}
+
+
+@media screen and (max-width: 480px) {
+}

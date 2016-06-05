@@ -1,0 +1,111 @@
+@charset "utf-8";
+
+
+//radius
+@mixin radius($size){
+	border-radius: $size;
+}
+
+
+//　transition
+@mixin transition($time){
+	-webkit-transition: all $time ease;
+ 	-moz-transition: all $time ease;
+ 	-o-transition: all $time ease;
+}
+
+
+// ■ アニメーション記述例
+//------------------------------------------
+//@include keyframes(animationSample){
+//    0% {
+//       opacity:0;
+//    }
+//    100% {
+//        opacity:1;
+//    }
+//}
+//#hoge{
+//    @include animation(animationSample 1.2s ease 0.15s);
+//}
+//------------------------------------------
+
+//アニメーション
+@mixin keyframes($animation-name: animation) {
+  @-webkit-keyframes #{$animation-name} {
+    @content;
+  }
+  @-moz-keyframes #{$animation-name} {
+    @content;
+  } 
+  @keyframes #{$animation-name} {
+    @content;
+  }
+}
+@mixin animation($animation-name) {
+  -webkit-animation: $animation-name;
+  -moz-animation: $animation-name;
+  animation: $animation-name;
+  -webkit-animation-fill-mode: both;
+  -moz-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+
+//ヨコ移動（transform:translateX）
+@mixin translateX($px){
+	-webkit-transform: translateX($px);
+	   -moz-transform: translateX($px);
+	    -ms-transform: translateX($px);
+	     -o-transform: translateX($px);
+	        transform: translateX($px);
+}
+
+//タテ移動（transform:translateY）
+@mixin translateY($px){
+	-webkit-transform: translateY($px);
+	   -moz-transform: translateY($px);
+	    -ms-transform: translateY($px);
+	     -o-transform: translateY($px);
+	        transform: translateY($px);
+}
+
+//X軸ナナメ変形（transform:skewX）
+@mixin transformX($deg){
+	-webkit-transform: skewX(#{$deg}deg);
+	   -moz-transform: skewX(#{$deg}deg);
+	    -ms-transform: skewX(#{$deg}deg);
+	     -o-transform: skewX(#{$deg}deg);
+	        transform: skewX(#{$deg}deg);
+}
+
+//Ｙ軸ナナメ変形（transform:skewY）
+@mixin transformY($deg){
+	-webkit-transform: skewY(#{$deg}deg);
+	   -moz-transform: skewY(#{$deg}deg);
+	    -ms-transform: skewY(#{$deg}deg);
+	     -o-transform: skewY(#{$deg}deg);
+	        transform: skewY(#{$deg}deg);
+}
+
+
+//before・after疑似要素
+@mixin coverElement{
+	position: absolute;
+	content: '';
+	width: 100%;
+	height: 100%;	
+}
+
+
+//レスポンシブ比率固定ボックス
+@mixin responsiveBox($width,$height){
+	position: relative;
+	width: 100%;
+	height: 100%;
+	padding:($height/$width)*100% 0 0;
+	&::before{
+		@include coverElement;
+		top:0;
+	}
+}

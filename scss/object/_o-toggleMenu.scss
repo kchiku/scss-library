@@ -1,0 +1,169 @@
+@charset "utf-8";
+
+// ■ トグルボタンhtml記述例
+//------------------------------------------
+//<div class="o-toggleButton js-toggleBtn">
+//	<div class="o-toggleButton__menuButtonWrap">
+//		<span class="o-toggleButton__menuBorder-close js-toggleBorder"></span>
+//		<span class="o-toggleButton__menuBorder-close js-toggleBorder"></span>
+//		<span class="o-toggleButton__menuBorder-close js-toggleBorder"></span>
+//	</div>
+//</div>
+
+//------------------------------------------
+// ■ トグルメニューhtml記述例
+//------------------------------------------
+//<div class="o-toggleMenu js-toggleMenu">
+//	<ul class="o-toggleMenu__listWrap">
+//		<li class="o-toggleMenu__listItem"><a class="js-linkButton" href="#product">PRODUCT</a></li>
+//		<li class="o-toggleMenu__listItem"><a class="js-linkButton" href="#work">HOW IT WORKS</a></li>
+//		<li class="o-toggleMenu__listItem"><a class="js-linkButton" href="#about">ABOUT US</a></li>
+//		<li class="o-toggleMenu__listItem"><a class="js-linkButton" href="#contact">CONTACT</a></li>
+//	</ul>
+//</div>
+
+//------------------------------------------
+// ■ トグルボタンjs記述例
+//------------------------------------------
+//$(function(){
+//	$('.js-toggleBtn').on('click' , function(){
+//		$('.js-toggleBorder').toggleClass('o-toggleButton__menuBorder-open');
+//		$('.js-toggleMenu').toggleClass('o-toggleMenu-open');
+//	});
+//});
+
+//------------------------------------------
+// ■ トグルメニュー（クリックアクション）js記述例
+//------------------------------------------
+//$(function(){
+//	$('.js-linkButton').on('click' , function(){
+//		var thisId = $(this).attr('href');
+//		var thisPosition = $(thisId).offset().top;
+//
+//		$('html,body').animate({scrollTop:(thisPosition - 80)},500);
+//		if( thisId == '#top' || thisId == '#contact2'){
+//		}else{
+//			$('.js-toggleBorder').toggleClass('o-toggleButton__menuBorder-open');
+//			$('.js-toggleMenu').toggleClass('o-toggleMenu-open');
+//		}
+//	});
+//});
+
+
+//トグルボタン（width768px以下で表示）
+.o-toggleButton{
+	position: absolute;
+	z-index: 100;
+	top:20px;
+	right:20px;
+	width: 30px;
+	height: 30px;
+	display: none;
+	cursor:pointer;
+
+	//トグルボタンラップ
+	&__menuButtonWrap{
+		position: relative;
+		width: 100%;
+		height: 100%;
+	}
+
+	//トグルボタンクローズ時（3本線）
+	&__menuBorder-close{
+		position: absolute;
+		display: block;
+		height: 2px;
+		width: 100%;
+		background-color: $baseColor;
+		left:0;
+		@include transition(0.3);
+
+		&:nth-child(1){
+			top:0;
+		}
+
+		&:nth-child(2){
+			top:14px;
+		} 
+		&:nth-child(3){
+			top:28px;
+		}
+	}
+
+	//トグルボタンオープン時（×表示）
+	&__menuBorder-open{
+
+		&:nth-child(1){
+			top:15px;
+        	-webkit-transform: rotate(45deg);
+        	-moz-transform: rotate(45deg);
+        	transform: rotate(45deg);
+		}
+
+		&:nth-child(2){
+			width: 0;
+			left:50%;
+		} 
+		&:nth-child(3){
+			top:15px;
+        	-webkit-transform: rotate(-45deg);
+        	-moz-transform: rotate(-45deg);
+        	transform: rotate(-45deg);
+		}		
+	}	
+}
+
+//トグルメニュー
+.o-toggleMenu{
+	position: fixed;
+	width: 100%;
+	height: auto;
+	top:-560px;
+	z-index: 2;
+	display: none;
+	@include transition(0.5);
+
+	&__listWrap{
+
+	}
+
+	&__listItem{
+		display: block;
+		>a{
+			display: block;
+			padding: 17px 0;
+			font-size: 1.6rem;
+			font-family:#{$english};
+			text-align: center;
+			vertical-align: middle;
+			background:#fff;
+			border-width: 1px 0 0 0;
+			border-style: solid;
+			border-color: #eee;
+			@include transition(0.2);
+			&:hover{
+				background: $baseColor;
+				color: #fff;
+			}
+		}
+	}
+
+	//オープン時に画面内へ下げて表示
+	&-open{
+        -moz-transform: translateY(620px);
+        -webkit-transform: translateY(620px);
+        transform: translateY(620px);		
+	}
+}
+
+@media screen and (max-width: 768px) {
+
+.o-toggleButton{
+	display: block;
+}
+
+.o-toggleMenu{
+	display: block;
+}
+
+}

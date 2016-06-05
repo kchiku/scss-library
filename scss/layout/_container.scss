@@ -1,0 +1,17 @@
+@charset "utf-8";
+
+// ■ コンテナサイズ指定クラス
+//------------------------------------------
+// width:100%表示は.container-full
+// コンテナサイズ指定は.container
+//------------------------------------------
+
+.container-full{
+	width: 100%;
+	margin: 0;
+}
+
+.container{
+	max-width: 960px;
+	margin: 0 auto;
+}

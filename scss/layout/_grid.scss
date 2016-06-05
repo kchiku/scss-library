@@ -1,0 +1,88 @@
+@charset "utf-8";
+
+// ■ 使用例
+//------------------------------------------
+// bootstrap同様に12本のグリッドで形成されており、
+// .rowでラップして.col-*でサイズ指定する。
+//
+//　レスポンス時のサイズ変更は.tabと.spでマルチクラスで対応
+// 別クラスが必要な場合は都度記述
+//------------------------------------------
+//
+// ■ 記述例
+//------------------------------------------
+//<div class="row container">　<!-- .containerはコンテナサイズ指定用 -->
+//    <div class="col-8 tab-full sp-full" style="background: #f00">
+//        メインコンテンツ
+//        <div class="row">
+//            <div class="col-4 tab-full sp-full" style="background: #aaa;">コンテンツ1</div>
+//            <div class="col-4 tab-half sp-full" style="background: #bbb;">コンテンツ2</div>
+//            <div class="col-4 tab-half sp-full" style="background: #ccc;">コンテンツ3</div>
+//        </div>
+//    </div>
+//    <div class="col-2 tab-half sp-full" style="background: #ff0">
+//        サイドカラム1
+//    </div>
+//    <div class="col-2 tab-half sp-full" style="background: #0f0">
+//        サイドカラム2
+//    </div>
+//</div>
+//------------------------------------------
+
+
+@mixin rowSplit($col:12, $padding:10px ,$class:'row') {
+    .#{$class}:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+    @for $i from 1 through $col
+    {
+        $width: (100% / ($col/$i));
+        .#{$class} .col-#{$i}
+        {
+            width: $width;
+        }
+    }
+    .#{$class} [class*='col-'] {
+        padding: 0 $padding;
+        float: left;
+    }
+}
+@include rowSplit();
+
+@media screen and (max-width: 960px) {
+
+.row{
+
+}
+
+}
+
+@media screen and (max-width: 768px) {
+
+.row{
+	.tab-half{
+		width: 50%;
+	}
+	.tab-full{
+		width: 100%;
+        float: none;
+	}
+}
+
+}
+
+@media screen and (max-width: 480px) {
+
+.row{
+	.sp-half{
+		width: 50%;
+	}
+	.sp-full{
+		width: 100%;
+        float: none;
+	}
+}
+
+}

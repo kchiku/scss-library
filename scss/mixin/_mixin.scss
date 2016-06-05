@@ -1,0 +1,16 @@
+@charset "utf-8";
+
+//背景ストライプ
+@mixin stripe{
+	content:'';
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top:0;
+	left:0;
+    background: -webkit-linear-gradient(bottom right, transparent 40%, #fbfbfb 40%, #fbfbfb 50%, transparent 50%, transparent 90%, #fbfbfb 90%, #fbfbfb);
+    background: -o-linear-gradient(bottom right, transparent 40%, #fbfbfb 40%, #fbfbfb 50%, transparent 50%, transparent 90%, #fbfbfb 90%, #fbfbfb);
+    background: linear-gradient(to bottom right, transparent 40%, #fbfbfb 40%, #fbfbfb 50%, transparent 50%, transparent 90%, #fbfbfb 90%, #fbfbfb);
+    background-size: 15px 15px;
+    opacity: 1;
+}
